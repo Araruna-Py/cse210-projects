@@ -20,8 +20,6 @@ class Program
 
             do
             {
-
-
                 Console.Write("What is your guess? ");
                 string guess = Console.ReadLine();
                 guessNumber = int.Parse(guess);
