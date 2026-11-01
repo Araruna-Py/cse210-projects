@@ -6,34 +6,39 @@ class Program
     {
         Console.WriteLine("Hello World! This is the Exercise4 Project.");
         string userNumber = "";
-        //int sumNumber = 0;
-        int totalNumbers = 0;
-        int total = 0;
-        int oldNumber = 0;
-        //float average = 0;
+        float sumNumber = 0;
+        float totalNumbers = 0;
+        float total = 0;
+        float average = 0;
+        float highestNumber = 0;
         do
         {
             Console.WriteLine("Enter a list of numbers, type 0 when finished.");
-            List<int> numbers = new List<int>();
+            List<float> numbers = new List<float>();
             do
             {
                     Console.Write("Enter number: ");
                     userNumber = Console.ReadLine();
                     if (userNumber != "0")
                     {
-                        int enterNumber = int.Parse(userNumber);
+                        float enterNumber = float.Parse(userNumber);
                         numbers.Add(enterNumber);
                         totalNumbers++;
                     }
             } while (userNumber != "0");
-            foreach (int number in numbers)
+            foreach (float number in numbers)
             {
-                //Console.WriteLine(number);
-                total = oldNumber + number;
-                Console.WriteLine(total);
-                oldNumber = total;
-                //Console.WriteLine(oldNumber);
+                total = sumNumber + number;
+                sumNumber = total;
+                if (number > highestNumber)
+                {
+                    highestNumber = number;
+                }
             }
+            average = total/totalNumbers;
+            Console.WriteLine($"The sum is: {total}");
+            Console.WriteLine($"The average is: {average}");
+            Console.WriteLine($"The largest number is: {highestNumber}");
         } while (userNumber != "0");
     }
 }
