@@ -7,7 +7,13 @@ class Program
         Console.WriteLine("Hello World! This is the Journal Project.");
         Console.WriteLine("");
         string userChoice = "";
-        List<string> _userOptions = new List<string> {"1. Write", "2. Display", "3. Load", "4. Save", "5. Quit"};
+        List<string> _userOptions = new List<string> {
+            "1. Write", 
+            "2. Display", 
+            "3. Load", 
+            "4. Save", 
+            "5. Quit"
+            };
         Console.WriteLine("Welcome to the Journal Program!");
         do
         {
