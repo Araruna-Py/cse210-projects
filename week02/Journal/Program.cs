@@ -23,6 +23,29 @@ class Program
             }
             Console.Write("What would you like to do? ");
             userChoice = Console.ReadLine();
+            DateTime theCurrentTime = DateTime.Now;
+            string dateText = theCurrentTime.ToShortDateString();
+            
+            //string thePrompt = "";
+            //string theEntry = "";
+            PromptGenerator promptGenerator = new PromptGenerator();
+            Entry entry = new Entry();
+            Journal journal = new Journal();
+
+            if (userChoice == "1")
+            {
+                //thePrompt = promptGenerator.GetRandomPrompt();
+                //Console.Write($"{thePrompt}");
+                Console.Write($"{entry._promptText = promptGenerator.GetRandomPrompt()}");
+                entry._entryText = Console.ReadLine();
+                entry._date = dateText;
+                journal._entries.Add(entry);
+            }
+            else if (userChoice == "2")
+            {
+                journal.DisplayAll();
+            }
         } while (userChoice != "5");
+        Console.WriteLine("");
     }
 }
