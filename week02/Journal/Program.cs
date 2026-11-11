@@ -14,7 +14,11 @@ class Program
             "4. Save", 
             "5. Quit"
             };
+        
         Console.WriteLine("Welcome to the Journal Program!");
+        PromptGenerator promptGenerator = new PromptGenerator();
+        Journal journal = new Journal();
+        
         do
         {
             foreach (string option in _userOptions)
@@ -28,18 +32,17 @@ class Program
             
             //string thePrompt = "";
             //string theEntry = "";
-            PromptGenerator promptGenerator = new PromptGenerator();
-            Entry entry = new Entry();
-            Journal journal = new Journal();
 
             if (userChoice == "1")
             {
                 //thePrompt = promptGenerator.GetRandomPrompt();
                 //Console.Write($"{thePrompt}");
+                Entry entry = new Entry();
                 Console.Write($"{entry._promptText = promptGenerator.GetRandomPrompt()}");
                 entry._entryText = Console.ReadLine();
                 entry._date = dateText;
-                journal._entries.Add(entry);
+                //journal._entries.Add(entry);
+                journal.AddEntry(entry);
             }
             else if (userChoice == "2")
             {
