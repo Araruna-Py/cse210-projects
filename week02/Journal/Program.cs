@@ -38,7 +38,8 @@ class Program
                 //thePrompt = promptGenerator.GetRandomPrompt();
                 //Console.Write($"{thePrompt}");
                 Entry entry = new Entry();
-                Console.Write($"{entry._promptText = promptGenerator.GetRandomPrompt()}");
+                entry._promptText = promptGenerator.GetRandomPrompt();
+                Console.Write($"{entry._promptText}");
                 entry._entryText = Console.ReadLine();
                 entry._date = dateText;
                 //journal._entries.Add(entry);
@@ -47,6 +48,26 @@ class Program
             else if (userChoice == "2")
             {
                 journal.DisplayAll();
+            }
+            else if (userChoice == "3")
+            {
+                Console.Write("What is the filename? ");
+                string filename = Console.ReadLine();
+                journal.LoadFromFile(filename);
+            }
+            else if (userChoice == "4")
+            {
+                Console.Write("What is the filename? ");
+                string filename = Console.ReadLine();
+                journal.SaveToFile(filename);
+            }
+            else if (userChoice == "5")
+            {
+                Console.WriteLine("Ok, goodbye!");
+            }
+            else
+            {
+                Console.WriteLine("Invalid option");
             }
         } while (userChoice != "5");
         Console.WriteLine("");
