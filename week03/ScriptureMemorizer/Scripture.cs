@@ -1,4 +1,6 @@
 //Keeps track of both the reference and the text of the scripture. Can hide words and get the rendered display of the text.
+using System.Diagnostics;
+
 public class Scripture
 {
     private Reference _reference;
@@ -15,10 +17,10 @@ public class Scripture
     public void HideRandomWords(int numberToHide)
     {
         Random randomGenerator = new Random();
-        int listIndex = randomGenerator.Next(0,_words.Count);
-        for ()
+        for (int i = 0; i < numberToHide; i++)
         {
-            
+            int listIndex = randomGenerator.Next(0,_words.Count);
+            _words[listIndex].Hide();
         }
 
     }
@@ -27,8 +29,19 @@ public class Scripture
         string scriptureVerse = _reference.GetDisplayText() + " ";
         foreach (Word w in _words)
         {
-            scriptureVerse += w.GetDisplayText();
+            scriptureVerse += w.GetDisplayText() + " ";
         }
         return scriptureVerse;
+    }
+    public bool IsCompletelyHidden()
+    {
+        foreach (Word w in _words)
+        {
+            if (w.IsHidden() == false)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
