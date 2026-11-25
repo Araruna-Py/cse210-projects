@@ -13,9 +13,14 @@ public class Video
         string commentary = comment.InfoComment();
         _allComments.Add(commentary);
     }
-    public void OpenComments()
+    public int CountComments()
     {
-        
+        int totalComments = 0;
+        foreach (string c in _allComments)
+        {
+            totalComments++;
+        }
+        return totalComments;
     }
 
 }
